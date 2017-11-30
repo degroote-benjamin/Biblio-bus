@@ -16,7 +16,7 @@ class Historical
      * @var User $adnumber
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="User")
      * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="adnumber", referencedColumnName="Adherent_number")
+     * @ORM\JoinColumn(name="ad_number", referencedColumnName="Adherent_number")
      * })
      */
     private $ad_number;

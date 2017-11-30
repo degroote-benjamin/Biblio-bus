@@ -15,7 +15,7 @@ class User
     /**
      * @var ArrayCollection $User
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="adnumber", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="ad_number", cascade={"persist"})
      */
      private $User;
 
