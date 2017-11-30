@@ -13,22 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Historical
 {
     /**
-     * @var User $adnumber
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="User")
-     * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="adnumber", referencedColumnName="Adherent_number")
-     * })
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="adherentNumber")
+     * @ORM\JoinColumn(name="adherentNumber", referencedColumnName="Adherent_number")
      */
-    private $ad_number;
     
      /**
-      * @var Book $id_book
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book", inversedBy="book")
-      * @ORM\JoinColumns({
-      * @ORM\JoinColumn(name="id_book", referencedColumnName="id")
-      * })
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book", inversedBy="id")
+     * @ORM\JoinColumn(name="id_book", referencedColumnName="id")
      */
-     private $id_book;
 
     /**
      * @var int
@@ -36,7 +28,15 @@ class Historical
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      */
-    private $id;
+    private $id_book;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adherent_number", type="string", length=255, unique=true)
+     */
+
+    private $adherentNumber;
 
     /**
      * @var bool

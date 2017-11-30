@@ -13,18 +13,28 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @var ArrayCollection $User
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="adnumber", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="adherentNumber", cascade={"persist"})
      */
-     private $User;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(name="Adherent_number" , type="string", length=255)
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $ad_number;
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adherent_number", type="string", length=255, unique=true)
+     */
+    private $adherentNumber;
+
+    public function __construct() {
+        $this->features = new ArrayCollection();
+    }
 
     /**
      * @var string
@@ -51,6 +61,29 @@ class User
         return $this->id;
     }
 
+    /**
+     * Set adherentNumber
+     *
+     * @param string $adherentNumber
+     *
+     * @return User
+     */
+    public function setAdherentNumber($adherentNumber)
+    {
+        $this->adherentNumber = $adherentNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get adherentNumber
+     *
+     * @return string
+     */
+    public function getAdherentNumber()
+    {
+        return $this->adherentNumber;
+    }
 
     /**
      * @return string
