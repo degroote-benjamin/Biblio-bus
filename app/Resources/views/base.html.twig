@@ -11,7 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <!-- favicon -->
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     <!-- bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -19,9 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <!-- css -->
-    <link rel="stylesheet" href="{{ asset(path('web/css/normalize.css')) }}">
-    <link rel="stylesheet" href="{{ asset(path('web/css/main.css')) }}">
-    <script src="{{ asset(path('web/js/vendor/modernizr-2.8.3.min.js')) }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <script src="{{ asset('web/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 </head>
 
 <body>
@@ -33,21 +33,15 @@
                 <a class="nav-link" href="{{ path('book_index') }}">Index</a>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add account</button>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="add.php?transfer">Transfert</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?logout">Log out</a>
+                <a class="nav-link" href="{{ path('user_index') }}">User list</a>
             </li>
         </ul>
     </nav>
 </header>
 {% block body %}{% endblock %}
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="{{ asset(path('web/js/plugins.js')) }}"></script>
-<script src="{{ asset(path('web/js/main.js')) }}"></script>
+<script src="{{ asset('js/plugins.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

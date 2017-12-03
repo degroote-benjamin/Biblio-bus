@@ -13,28 +13,21 @@ use Doctrine\ORM\Mapping as ORM;
 class Historical
 {
     /**
-     * @var User $adnumber
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="User")
-     * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="ad_number", referencedColumnName="Adherent_number")
-     * })
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book")
      */
-    private $ad_number;
-    
-     /**
-      * @var Book $id_book
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book", inversedBy="book")
-      * @ORM\JoinColumns({
-      * @ORM\JoinColumn(name="id_book", referencedColumnName="id")
-      * })
+    private $book;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
-     private $id_book;
+    private $user;
 
     /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -54,30 +47,6 @@ class Historical
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set adherentNumber
-     *
-     * @param string $adherentNumber
-     *
-     * @return Historical
-     */
-    public function setAdherentNumber($adherentNumber)
-    {
-        $this->adherentNumber = $adherentNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get adherentNumber
-     *
-     * @return string
-     */
-    public function getAdherentNumber()
-    {
-        return $this->adherentNumber;
     }
 
     /**
@@ -103,28 +72,5 @@ class Historical
     {
         return $this->returnBook;
     }
-
-    /**
-     * Set idBook
-     *
-     * @param integer $idBook
-     *
-     * @return Historical
-     */
-    public function setIdBook($idBook)
-    {
-        $this->id_book = $idBook;
-
-        return $this;
-    }
-
-    /**
-     * Get idBook
-     *
-     * @return integer
-     */
-    public function getIdBook()
-    {
-        return $this->id_book;
-    }
 }
+

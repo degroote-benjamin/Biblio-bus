@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Book controller.
  *
- * @Route("book")
  */
 class BookController extends Controller
 {

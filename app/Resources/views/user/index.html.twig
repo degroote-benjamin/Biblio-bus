@@ -7,9 +7,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Adherentnumber</th>
                 <th>Name</th>
                 <th>Surname</th>
+                <th>Membercode</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -17,16 +17,13 @@
         {% for user in users %}
             <tr>
                 <td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>
-                <td>{{ user.adherentNumber }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.surname }}</td>
+                <td>{{ user.memberCode }}</td>
                 <td>
                     <ul>
                         <li>
                             <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,9 +32,5 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_new') }}">Create a new user</a>
-        </li>
-    </ul>
+    
 {% endblock %}

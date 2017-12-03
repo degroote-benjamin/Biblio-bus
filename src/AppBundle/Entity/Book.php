@@ -13,13 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Book
 {
     /**
-     * @var ArrayCollection $book
-     *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="id_book", cascade={"persist"})
-     */
-    private $book;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -31,44 +24,30 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="Author", type="string", length=255)
-     */
-    private $author;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Titre", type="string", length=255)
+     * @ORM\Column(name="Title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Resume", type="text")
+     * @ORM\Column(name="Author", type="string", length=255)
      */
-    private $resume;
+    private $author;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="release_date", type="datetime")
+     * @ORM\Column(name="release_date", type="date")
      */
     private $releaseDate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Category", type="string", length=255)
+     * @ORM\Column(name="Summary", type="text")
      */
-    private $category;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $available;
-
+    private $summary;
 
 
     /**
@@ -79,6 +58,30 @@ class Book
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Book
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
@@ -106,54 +109,6 @@ class Book
     }
 
     /**
-     * Set titre
-     *
-     * @param string $titre
-     *
-     * @return Book
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set resume
-     *
-     * @param string $resume
-     *
-     * @return Book
-     */
-    public function setResume($resume)
-    {
-        $this->resume = $resume;
-
-        return $this;
-    }
-
-    /**
-     * Get resume
-     *
-     * @return string
-     */
-    public function getResume()
-    {
-        return $this->resume;
-    }
-
-    /**
      * Set releaseDate
      *
      * @param \DateTime $releaseDate
@@ -178,76 +133,27 @@ class Book
     }
 
     /**
-     * Set category
+     * Set summary
      *
-     * @param string $category
+     * @param string $summary
      *
      * @return Book
      */
-    public function setCategory($category)
+    public function setSummary($summary)
     {
-        $this->category = $category;
+        $this->summary = $summary;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get summary
      *
      * @return string
      */
-    public function getCategory()
+    public function getSummary()
     {
-        return $this->category;
+        return $this->summary;
     }
-
-    /**
-     * Set adherentNumber
-     *
-     * @param string $adherentNumber
-     *
-     * @return Book
-     */
-    public function setAdherentNumber($adherentNumber)
-    {
-        $this->adherentNumber = $adherentNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get adherentNumber
-     *
-     * @return string
-     */
-    public function getAdherentNumber()
-    {
-        return $this->adherentNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAvailable()
-    {
-        return $this->available;
-    }
-
-    /**
-     * @param mixed $available
-     */
-    public function setAvailable($available)
-    {
-        $this->available = $available;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-
 }
+

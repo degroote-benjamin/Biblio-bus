@@ -10,28 +10,20 @@
                 <td>{{ book.id }}</td>
             </tr>
             <tr>
-                <th>Author</th>
-                <td>{{ book.author }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
                 <td>{{ book.title }}</td>
             </tr>
             <tr>
-                <th>Resume</th>
-                <td>{{ book.resume }}</td>
+                <th>Author</th>
+                <td>{{ book.author }}</td>
             </tr>
             <tr>
                 <th>Releasedate</th>
-                <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Category</th>
-                <td>{{ book.category }}</td>
-            </tr>
-            <tr>
-                <th>Available</th>
-                <td>{% if book.available %}Yes{% else %}No{% endif %}</td>
+                <th>Summary</th>
+                <td>{{ book.summary }}</td>
             </tr>
         </tbody>
     </table>

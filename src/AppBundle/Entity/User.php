@@ -13,23 +13,18 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @var ArrayCollection $User
+     * @var int
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Historical", mappedBy="ad_number", cascade={"persist"})
-     */
-     private $User;
-
-    /**
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(name="Adherent_number" , type="string", length=255)
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $ad_number;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
@@ -39,6 +34,13 @@ class User
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="member_code", type="string", length=255 , unique=true)
+     */
+    private $memberCode;
 
 
     /**
@@ -51,8 +53,23 @@ class User
         return $this->id;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 
     /**
+     * Get name
+     *
      * @return string
      */
     public function getName()
@@ -61,14 +78,22 @@ class User
     }
 
     /**
-     * @param string $name
+     * Set surname
+     *
+     * @param string $surname
+     *
+     * @return User
      */
-    public function setName($name)
+    public function setSurname($surname)
     {
-        $this->name = $name;
+        $this->surname = $surname;
+
+        return $this;
     }
 
     /**
+     * Get surname
+     *
      * @return string
      */
     public function getSurname()
@@ -77,20 +102,27 @@ class User
     }
 
     /**
-     * @param string $surname
+     * Set memberCode
+     *
+     * @param string $memberCode
+     *
+     * @return User
      */
-    public function setSurname($surname)
+    public function setMemberCode($memberCode)
     {
-        $this->surname = $surname;
+        $this->memberCode = $memberCode;
+
+        return $this;
     }
 
     /**
-     * @param int $id
+     * Get memberCode
+     *
+     * @return string
      */
-    public function setId($id)
+    public function getMemberCode()
     {
-        $this->id = $id;
+        return $this->memberCode;
     }
-
-
 }
+
