@@ -25,7 +25,6 @@ class BookController extends Controller
         $book = new Book();
         $form = $this->createForm('AppBundle\Form\BookType', $book);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($book);
@@ -49,9 +48,11 @@ class BookController extends Controller
     public function showAction(Book $book)
     {
         $deleteForm = $this->createDeleteForm($book);
-
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('AppBundle:User')->findAll();
         return $this->render('book/show.html.twig', array(
             'book' => $book,
+            'user'=>$users,
             'delete_form' => $deleteForm->createView(),
         ));
     }

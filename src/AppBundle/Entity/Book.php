@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Book
@@ -23,6 +24,8 @@ class Book
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3, minMessage="Title need {{ limit }}")
      *
      * @ORM\Column(name="Title", type="string", length=255)
      */
@@ -30,6 +33,8 @@ class Book
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
      *
      * @ORM\Column(name="Author", type="string", length=255)
      */
@@ -37,6 +42,8 @@ class Book
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3,minMessage="category need {{ limit }}")
      *
      * @ORM\Column(name="Category", type="string", length=255)
      */
@@ -44,6 +51,7 @@ class Book
 
     /**
      * @var \DateTime
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="release_date", type="date")
      */
@@ -58,6 +66,8 @@ class Book
 
     /**
      * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(min=15 ,minMessage = "Summary need {{ limit }}")
      *
      * @ORM\Column(name="Summary", type="text")
      */

@@ -17,7 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        dump($_REQUEST);
+
         $em = $this->getDoctrine()->getManager();
         $books = $em->getRepository('AppBundle:Book')->findAll();
         $books1 = $em->getRepository('AppBundle:Book')->category();
@@ -35,8 +35,8 @@ class DefaultController extends Controller
      */
     public function newAction()
     {
-            $em = $this->getDoctrine()->getManager();
-            $books = $em->getRepository('AppBundle:Book')->findBy(['category' => $_POST['category']]);
+        $em = $this->getDoctrine()->getManager();
+        $books = $em->getRepository('AppBundle:Book')->findBy(['category' => $_POST['category']]);
 
         $books1 = $em->getRepository('AppBundle:Book')->category();
         return $this->render('book/index.html.twig', array(

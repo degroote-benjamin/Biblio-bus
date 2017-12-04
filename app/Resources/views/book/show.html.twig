@@ -5,48 +5,58 @@
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ book.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ book.title }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ book.author }}</td>
-            </tr>
-            <tr>
-                <th>Category</th>
-                <td>{{ book.category }}</td>
-            </tr>
-            <tr>
-                <th>Releasedate</th>
-                <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Avaible</th>
-                <td>{% if book.avaible %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td>{{ book.summary }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ book.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td>{{ book.title }}</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>{{ book.author }}</td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>{{ book.category }}</td>
+        </tr>
+        <tr>
+            <th>Releasedate</th>
+            <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Avaible</th>
+            <td>{% if book.avaible %}Yes{% else %}No{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Summary</th>
+            <td>{{ book.summary }}</td>
+        </tr>
         </tbody>
     </table>
 
+    <form action="{{ path('homepage') }}">
+        {% if book.avaible %}
+            <select name="id_user">
+                {% for users in user %}
+                    <option value="{{ users.id }}">{{ users.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="hidden" value="{{ book.id }}">
+            <input type="submit" value="borrow">
+        {% else %}
+            <input type="hidden" value="{{ book.id }}">
+            <input type="submit" value="return">
+        {% endif %}
+    </form>
+
     <ul>
         <li>
-            <a href="{{ path('book_index') }}">Back to the list</a>
+            <a href="{{ path('homepage') }}">Back to the list</a>
         </li>
         <li>
             <a href="{{ path('book_edit', { 'id': book.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
         </li>
     </ul>
 {% endblock %}
