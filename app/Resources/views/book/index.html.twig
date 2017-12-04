@@ -1,42 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Books list</h1>
+    <h1 class="text-center">Books list</h1>
 
     <div class="container">
         <div class="row">
-            <table class="table table-responsive d-flex justify-content-center my-5">
-                <tr class="thead-inverse">
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Releasedate</th>
-                    <th>Summary</th>
-                    <th>See more</th>
-                    <th>Edit</th>
-                </tr>
-                {% for book in books %}
-                    <tr>
-                        <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.id }}</a></td>
-                        <td>{{ book.title }}</td>
-                        <td>{{ book.author }}</td>
-                        <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
-                        <td>{{ book.summary }}</td>
-                        <td>
-                            <a href="{{ path('book_show', { 'id': book.id }) }}"><i class="fa fa-info" aria-hidden="true"></i></a>
-                        </td>
-                        <td>
-                            <a href="{{ path('book_edit', { 'id': book.id }) }}"><i class="fa fa-wrench" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
+            <form action="{{ path('sort') }}" method="post">
+                <select name="category">
+                    {% for category in categorys %}
+                        <option value="{{ category.category}}">{{ category.category }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="sort" value="sort">
+            </form>
+            <div class="card-deck">
+                    {% for book in books %}
+                        <div class="card my-5">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Title : <br>{{ book.title }}</li>
+                                <li class="list-group-item">Author :<br> {{ book.author }}</li>
+                                <li class="list-group-item">Release date : <br>{% if book.releaseDate %}{{ book.releaseDate|date('d-m-Y') }}{% endif %}</li>
+                                <li class="list-group-item">Avaible : <br>{{ book.avaible }}</li>
+                                <li class="list-group-item"><SPAN class="mr-5">See more : </SPAN>
+                                    <a href="{{ path('book_show', { 'id': book.id }) }}"><i class="fa fa-info" aria-hidden="true"></i></a>
+                                </li>
+                                <li class="list-group-item"><SPAN class="mr-5">Edit book : </SPAN>
+                                    <a href="{{ path('book_edit', { 'id': book.id }) }}"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+            </div>
         </div>
     </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('book_new') }}">Create a new book</a>
-        </li>
-    </ul>
+
 {% endblock %}

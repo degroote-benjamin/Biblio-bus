@@ -18,8 +18,16 @@
                 <td>{{ book.author }}</td>
             </tr>
             <tr>
+                <th>Category</th>
+                <td>{{ book.category }}</td>
+            </tr>
+            <tr>
                 <th>Releasedate</th>
                 <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Avaible</th>
+                <td>{% if book.avaible %}Yes{% else %}No{% endif %}</td>
             </tr>
             <tr>
                 <th>Summary</th>

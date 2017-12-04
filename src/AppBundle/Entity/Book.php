@@ -36,11 +36,25 @@ class Book
     private $author;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="Category", type="string", length=255)
+     */
+    private $category;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="release_date", type="date")
      */
     private $releaseDate;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="avaible", type="boolean")
+     */
+    private $avaible = true;
 
     /**
      * @var string
@@ -155,5 +169,39 @@ class Book
     {
         return $this->summary;
     }
+
+    /**
+     * @return bool
+     */
+    public function isAvaible()
+    {
+        return $this->avaible;
+    }
+
+    /**
+     * @param bool $avaible
+     */
+    public function setAvaible($avaible)
+    {
+        $this->avaible = $avaible;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+
 }
 

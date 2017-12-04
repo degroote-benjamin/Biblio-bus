@@ -10,26 +10,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Book controller.
  *
+ * @Route("book")
  */
 class BookController extends Controller
 {
-    /**
-     * Lists all book entities.
-     *
-     * @Route("/", name="book_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $books = $em->getRepository('AppBundle:Book')->findAll();
-
-        return $this->render('book/index.html.twig', array(
-            'books' => $books,
-        ));
-    }
-
     /**
      * Creates a new book entity.
      *
