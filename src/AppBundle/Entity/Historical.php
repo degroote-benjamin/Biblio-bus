@@ -73,5 +73,39 @@ class Historical
     {
         return $this->returnBook;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBook()
+    {
+        return $this->book;
+    }
+
+    /**
+     * @param mixed $book
+     */
+    public function setBook($book)
+    {
+        $this->book = $book;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+
 }
 

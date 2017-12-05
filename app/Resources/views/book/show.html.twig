@@ -36,18 +36,18 @@
         </tbody>
     </table>
 
-    <form action="{{ path('homepage') }}">
+    <form action="{{ path('homepage') }}" method="post">
+        <input name="id" type="hidden" value="{{ book.id }}">
         {% if book.avaible %}
             <select name="id_user">
                 {% for users in user %}
                     <option value="{{ users.id }}">{{ users.name }}</option>
                 {% endfor %}
             </select>
-            <input type="hidden" value="{{ book.id }}">
-            <input type="submit" value="borrow">
+
+            <input type="submit" name="avaiblereturn" value="borrow">
         {% else %}
-            <input type="hidden" value="{{ book.id }}">
-            <input type="submit" value="return">
+            <input type="submit" name="avaiblereturn" value="return">
         {% endif %}
     </form>
 
