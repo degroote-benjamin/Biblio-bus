@@ -4,7 +4,7 @@
     <h1 class="text-center">Books</h1>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center my-5">
             <div class="col-5">
                 <div class="card">
                     <ul class="list-group list-group-flush">
@@ -52,6 +52,39 @@
         </div>
     </div>
 
+    <h2 class="text-center">Historical</h2>
+    <div class="container">
+        <div class="row">
+            <table class="table table-responsive d-flex justify-content-center my-5">
+                <tr class="thead-inverse">
+                    <th>surname</th>
+                    <th>name</th>
+                    <th>Member Code</th>
+                    <th>Return</th>
+                </tr>
+
+                {% for data in historical %}
+                <tr>
+                    <td>
+                        {{ data.user.surname }}
+                    </td>
+                    <td>
+                        {{ data.user.name }}
+                    </td>
+                    <td>
+                        {{ data.user.MemberCode }}
+                    </td>
+                    <td>
+                        {% if data.returnBook %}Yes{% else %}No{% endif %}
+                    </td>
+                </tr>
+
+                <?php
+            {% endfor %}
+
+            </table>
+        </div>
+    </div>
 
 
 {% endblock %}
