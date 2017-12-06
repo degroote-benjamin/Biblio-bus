@@ -52,7 +52,6 @@ class BookController extends Controller
         $users = $em->getRepository('AppBundle:User')->findAll();
         $historical = $em->getRepository('AppBundle:Historical')->findBy(['book'=>$book]);
         $UserBook = $em->getRepository('AppBundle:Historical')->findBy(['book'=>$book , 'returnBook'=>false]);
-        dump($UserBook);
         return $this->render('book/show.html.twig', array(
             'book' => $book,
             'user'=>$users,

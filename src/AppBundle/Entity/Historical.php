@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -24,6 +25,12 @@ class Historical
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $user;
+
+    public function __construct()
+    {
+        $this->book = new ArrayCollection();
+        $this->user = new ArrayCollection();
+    }
 
     /**
      * @var int
