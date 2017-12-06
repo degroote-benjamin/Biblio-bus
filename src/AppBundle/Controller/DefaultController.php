@@ -31,6 +31,7 @@ class DefaultController extends Controller
                 $historical->setReturnBook(false);
             }
             else{
+                // find last historical info for this book
                 $historical = $em->getRepository('AppBundle:Historical')->findOneBy(
                     array('book'=>$request->get('id')),
                     array('id' => 'DESC'));
@@ -43,7 +44,9 @@ class DefaultController extends Controller
             $em->flush();
 
         }
+        // take all book
         $books = $em->getRepository('AppBundle:Book')->findAll();
+        // take distinct category for allbook
         $books1 = $em->getRepository('AppBundle:Book')->category();
         return $this->render('book/index.html.twig', array(
             'books' => $books,
