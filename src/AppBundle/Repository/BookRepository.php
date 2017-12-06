@@ -11,7 +11,7 @@ namespace AppBundle\Repository;
 class BookRepository extends \Doctrine\ORM\EntityRepository
 {
     public function category(){
-        $query = $query = $this->getEntityManager()->createQuery('SELECT DISTINCT p.category FROM AppBundle:Book p');
+        $query = $this->getEntityManager()->createQuery('SELECT DISTINCT p.category FROM AppBundle:Book p');
         return $query->getResult();
     }
 }

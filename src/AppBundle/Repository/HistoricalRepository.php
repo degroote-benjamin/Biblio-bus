@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class HistoricalRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function lastid($id){
+        $query = $this->getEntityManager()->createQuery('SELECT * FROM AppBundle:Historical where book_id = :id ORDER BY id DESC LIMIT 1');
+        $query->setParameters(array(
+            'id' => $id,
+        ));
+        return $query->getResult();
+    }
 }
