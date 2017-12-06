@@ -1,62 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Book</h1>
+    <h1 class="text-center">Books</h1>
 
-    <table>
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ book.id }}</td>
-        </tr>
-        <tr>
-            <th>Title</th>
-            <td>{{ book.title }}</td>
-        </tr>
-        <tr>
-            <th>Author</th>
-            <td>{{ book.author }}</td>
-        </tr>
-        <tr>
-            <th>Category</th>
-            <td>{{ book.category }}</td>
-        </tr>
-        <tr>
-            <th>Releasedate</th>
-            <td>{% if book.releaseDate %}{{ book.releaseDate|date('Y-m-d') }}{% endif %}</td>
-        </tr>
-        <tr>
-            <th>Avaible</th>
-            <td>{% if book.avaible %}Yes{% else %}No{% endif %}</td>
-        </tr>
-        <tr>
-            <th>Summary</th>
-            <td>{{ book.summary }}</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h2>{{ book.title }}</h2></li>
+                        <li class="list-group-item">Author : {{ book.author }}</li>
+                        <li class="list-group-item">Summary :<br> <p>{{ book.summary }}</p></li>
+                        <li class="list-group-item">Release date : {% if book.releaseDate %}{{ book.releaseDate|date('d-m-Y') }}{% endif %}</li>
+                        <li class="list-group-item">Avaible : {% if book.avaible %}Yes{% else %}No{% endif %}</li>
+                        <li class="list-group-item"><SPAN class="mr-5">Edit book : </SPAN>
+                            <a href="{{ path('book_edit', { 'id': book.id }) }}"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-group-item">
+                        <form action="{{ path('homepage') }}" method="post">
+                            <input name="id" type="hidden" value="{{ book.id }}">
+                            {% if book.avaible %}
+                                <select name="id_user">
+                                    {% for users in user %}
+                                        <option value="{{ users.id }}">{{ users.name }}</option>
+                                    {% endfor %}
+                                </select>
 
-    <form action="{{ path('homepage') }}" method="post">
-        <input name="id" type="hidden" value="{{ book.id }}">
-        {% if book.avaible %}
-            <select name="id_user">
-                {% for users in user %}
-                    <option value="{{ users.id }}">{{ users.name }}</option>
-                {% endfor %}
-            </select>
+                                <input type="submit" name="avaiblereturn" value="borrow">
+                            {% else %}
+                                <input type="submit" name="avaiblereturn" value="return">
+                            {% endif %}
+                        </form>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ path('homepage') }}">Back to the list</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-            <input type="submit" name="avaiblereturn" value="borrow">
-        {% else %}
-            <input type="submit" name="avaiblereturn" value="return">
-        {% endif %}
-    </form>
+        </div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('homepage') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('book_edit', { 'id': book.id }) }}">Edit</a>
-        </li>
-    </ul>
+
+
 {% endblock %}

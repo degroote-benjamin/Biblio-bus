@@ -54,13 +54,13 @@ class DefaultController extends Controller
     /**
      * Creates a new book entity.
      *
-     * @Route("/sort", name="sort")
+     * @Route("/sort/{category}", name="sort")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction($category)
     {
         $em = $this->getDoctrine()->getManager();
-        $books = $em->getRepository('AppBundle:Book')->findBy(['category' =>$request->get('category')]);
+        $books = $em->getRepository('AppBundle:Book')->findBy(['category' => $category]);
 
         $books1 = $em->getRepository('AppBundle:Book')->category();
         return $this->render('book/index.html.twig', array(
