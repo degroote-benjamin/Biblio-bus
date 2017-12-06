@@ -19,11 +19,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        dump($request);
         $em = $this->getDoctrine()->getManager();
-        if($request->query->has('avaiblereturn')) {
+        if($request->isMethod('POST')) {
+            dump($request);
             $books = $em->getRepository('AppBundle:Book')->findOneBy(['id' => $request->get('id')]);
-            if($request->query->has('id_user')){
+            if($request->request->has('id_user')){
                 $historical = new Historical();
                 $books->setAvaible(false);
                 $users = $em->getRepository('AppBundle:User')->findOneBy(['id' => $request->get('id_user')]);
@@ -38,7 +38,6 @@ class DefaultController extends Controller
                 $historical->setReturnBook(1);
             }
             $historical->setBook($books);
-            dump($historical);
             $em->persist($historical);
             $em->persist($books);
             $em->flush();

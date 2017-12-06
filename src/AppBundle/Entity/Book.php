@@ -25,7 +25,7 @@ class Book
     /**
      * @var string
      * @Assert\NotBlank()
-     * @Assert\Length(min=3, minMessage="Title need {{ limit }}")
+     * @Assert\Length(min=3, max="15" , minMessage="Title need {{ limit }}")
      *
      * @ORM\Column(name="Title", type="string", length=255)
      */

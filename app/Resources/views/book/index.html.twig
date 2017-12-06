@@ -13,14 +13,14 @@
                 </select>
                 <input type="submit" name="sort" value="sort">
             </form>
-            <div class="card-deck">
+            <div class="row col-12">
                     {% for book in books %}
-                        <div class="card my-5">
+                        <div class="col-10 col-sm-6 col-lg-4 my-5">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Title : <br>{{ book.title }}</li>
-                                <li class="list-group-item">Author :<br> {{ book.author }}</li>
-                                <li class="list-group-item">Release date : <br>{% if book.releaseDate %}{{ book.releaseDate|date('d-m-Y') }}{% endif %}</li>
-                                <li class="list-group-item">Avaible : <br>{{ book.avaible }}</li>
+                                <li class="list-group-item"><h2>{{ book.title }}</h2></li>
+                                <li class="list-group-item">Author : {{ book.author }}</li>
+                                <li class="list-group-item">Release date : {% if book.releaseDate %}{{ book.releaseDate|date('d-m-Y') }}{% endif %}</li>
+                                <li class="list-group-item">Avaible : {% if book.avaible %}Yes{% else %}No{% endif %}</li>
                                 <li class="list-group-item"><SPAN class="mr-5">See more : </SPAN>
                                     <a href="{{ path('book_show', { 'id': book.id }) }}"><i class="fa fa-info" aria-hidden="true"></i></a>
                                 </li>
