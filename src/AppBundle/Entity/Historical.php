@@ -15,11 +15,13 @@ class Historical
 {
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $book;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $user;
 

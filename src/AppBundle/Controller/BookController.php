@@ -51,10 +51,13 @@ class BookController extends Controller
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('AppBundle:User')->findAll();
         $historical = $em->getRepository('AppBundle:Historical')->findBy(['book'=>$book]);
+        $UserBook = $em->getRepository('AppBundle:Historical')->findBy(['book'=>$book , 'returnBook'=>false]);
+        dump($UserBook);
         return $this->render('book/show.html.twig', array(
             'book' => $book,
             'user'=>$users,
             'historical'=>$historical,
+            'userbook'=>$UserBook,
             'delete_form' => $deleteForm->createView(),
         ));
     }

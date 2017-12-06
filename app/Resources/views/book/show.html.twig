@@ -13,6 +13,9 @@
                         <li class="list-group-item">Summary :<br> <p>{{ book.summary }}</p></li>
                         <li class="list-group-item">Release date : {% if book.releaseDate %}{{ book.releaseDate|date('d-m-Y') }}{% endif %}</li>
                         <li class="list-group-item">Avaible : {% if book.avaible %}Yes{% else %}No{% endif %}</li>
+                        {% if(book.avaible == false) %}
+                        <li class="list-group-item">Code member : <strong>{{ userbook.user.name }}</strong></li>
+                        {% endif %}
                         <li class="list-group-item"><SPAN class="mr-5">Edit book : </SPAN>
                             <a href="{{ path('book_edit', { 'id': book.id }) }}"><i class="fa fa-wrench" aria-hidden="true"></i></a>
                         </li>
