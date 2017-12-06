@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Users list</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="card-deck">
+                {% for user in users %}
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Member code :<br> {{ user.memberCode}}</li>
+                            <li class="list-group-item">Name :<br> {{ user.name }}</li>
+                            <li class="list-group-item">Surname :<br> {{ user.surname }}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

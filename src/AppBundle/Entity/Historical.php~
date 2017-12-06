@@ -1,0 +1,130 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Historical
+ *
+ * @ORM\Table(name="historical")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\HistoricalRepository")
+ */
+class Historical
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="adherentNumber")
+     * @ORM\JoinColumn(name="adherentNumber", referencedColumnName="Adherent_number")
+     */
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Book", inversedBy="id")
+     * @ORM\JoinColumn(name="id_book", referencedColumnName="id")
+     */
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     */
+    private $id_book;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adherent_number", type="string", length=255, unique=true)
+     */
+
+    private $adherentNumber;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="Return_book", type="boolean")
+     */
+    private $returnBook;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set adherentNumber
+     *
+     * @param string $adherentNumber
+     *
+     * @return Historical
+     */
+    public function setAdherentNumber($adherentNumber)
+    {
+        $this->adherentNumber = $adherentNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get adherentNumber
+     *
+     * @return string
+     */
+    public function getAdherentNumber()
+    {
+        return $this->adherentNumber;
+    }
+
+    /**
+     * Set returnBook
+     *
+     * @param boolean $returnBook
+     *
+     * @return Historical
+     */
+    public function setReturnBook($returnBook)
+    {
+        $this->returnBook = $returnBook;
+
+        return $this;
+    }
+
+    /**
+     * Get returnBook
+     *
+     * @return bool
+     */
+    public function getReturnBook()
+    {
+        return $this->returnBook;
+    }
+
+    /**
+     * Set idBook
+     *
+     * @param integer $idBook
+     *
+     * @return Historical
+     */
+    public function setIdBook($idBook)
+    {
+        $this->id_book = $idBook;
+
+        return $this;
+    }
+
+    /**
+     * Get idBook
+     *
+     * @return integer
+     */
+    public function getIdBook()
+    {
+        return $this->id_book;
+    }
+}
