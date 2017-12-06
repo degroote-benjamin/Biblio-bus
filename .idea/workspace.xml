@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e72830f-1509-4bdb-b9e7-b0e0933698d0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/BookController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-    </list>
+    <list default="true" id="1e72830f-1509-4bdb-b9e7-b0e0933698d0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +15,8 @@
       <file leaf-file-name="BookController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1617">
-              <caret line="55" column="64" lean-forward="false" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
+            <state relative-caret-position="528">
+              <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
               <folding>
                 <element signature="e#1572#1594#1#PHP" expanded="true" />
                 <element signature="e#1726#1748#1#PHP" expanded="true" />
@@ -164,7 +161,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="64" />
+    <option name="x" value="-1856" />
     <option name="y" value="-11" />
     <option name="width" value="1857" />
     <option name="height" value="1092" />
@@ -389,15 +386,15 @@
       <workItem from="1512425108910" duration="1097000" />
       <workItem from="1512461457961" duration="5188000" />
       <workItem from="1512548917556" duration="1566000" />
-      <workItem from="1512550497507" duration="13657000" />
+      <workItem from="1512550497507" duration="13670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64686000" />
+    <option name="totallyTimeSpent" value="64699000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="-1856" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -786,8 +783,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BookController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1617">
-          <caret line="55" column="64" lean-forward="false" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
+        <state relative-caret-position="528">
+          <caret line="22" column="47" lean-forward="true" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
           <folding>
             <element signature="e#1572#1594#1#PHP" expanded="true" />
             <element signature="e#1726#1748#1#PHP" expanded="true" />
